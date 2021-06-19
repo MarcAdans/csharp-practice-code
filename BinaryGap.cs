@@ -10,11 +10,13 @@ public class Program
 {
 	private static int BinaryGap(int n)
 	{
-       		var regex = Regex.Matches(Convert.ToString(n, 2), @"(0+)(?:1+)");
-		
-		if (regex.Count <= 0) return 0;
-		
-		return regex.Cast<Match>().Max(m => m.Groups[1].Value.Length);
+		var match = Regex.Matches(Convert.ToString(N, 2), @"(0+)(?:1)");
+
+		if (match.Count <= 0) return 0;
+
+		return match.Cast<Match>()
+			    .Where(m=> m.Groups.Count >= 2)
+			    .Max(m => m.Groups[1].Value.Length) ;
 		
 	}
 	
