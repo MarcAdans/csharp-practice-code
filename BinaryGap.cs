@@ -3,12 +3,15 @@ using System;
 using System.Text.RegularExpressions;
 using System.Linq;
 
-					
+//Codility_
+//BinaryGap - https://app.codility.com/programmers/lessons/1-iterations/binary_gap/
+
 public class Program
 {
 	private static int BinaryGap(int n)
 	{
-       var regex = Regex.Matches(Convert.ToString(n, 2), @"(0+)(?:1+)");
+       		var regex = Regex.Matches(Convert.ToString(n, 2), @"(0+)(?:1+)");
+		
 		if (regex.Count <= 0) return 0;
 		
 		return regex.Cast<Match>().Max(m => m.Groups[1].Value.Length);
